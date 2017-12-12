@@ -4,19 +4,17 @@
     <meta charset="utf-8">
     <title>exercice 5 partie 3 php</title>
   </head>
-  <body>
-    <?php
-    $maVariable = 'homme';
+</head>
+<body>
+  <?php
 
-    if ($maVariable == 'homme') {
-      echo ('C\'est un développeur');
+  $text = 'On y arrive presque';
+    for ($number = 1; $number < 15; $number++) {
+      echo $text.'<br/>';
     }
-    elseif ($maVariable == 'femme') {
-      echo ('C\'est une développeuse');
+    if ($number == 15) {
+      echo ('On y est arrivé !');
     }
-    else {
-      echo ('IT\'S A TRAP');
-    }
-    ?>
-  </body>
+   ?>
+</body>
 </html>
