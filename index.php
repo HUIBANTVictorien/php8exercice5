@@ -1,26 +1,25 @@
-<!DOCTYPE html>
+<?php
+if (isset($_POST['pseudo']) && ($_POST['password'])) {
+  setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, '/', null, false, true);
+  setcookie('password', $_POST['password'], time() + 365*24*3600, '/', null, false, true);
+}
+?><!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>exercice 5 partie 7 php</title>
+  <title>exercice 5 partie 8 php</title>
 </head>
 <body>
   <form class="form" action="index.php" method="post">
-    <select class="civility" name="civility">
-      <option value="Monsieur" name="Monsieur">Monsieur</option>
-      <option value="Madame" name="Madame">Madame</option>
-    </select>
-    <input type="lastname" name="lastname" placeholder="Nom">
-    <input type="firstname" name="firstname" placeholder="Prénom">
+    <input type="text" name="pseudo" placeholder="pseudo">
+    <input type="password" name="password" placeholder="mot de passe">
     <button type="submit" name="validate">Valider</button>
   </form>
-  <p><?php
-  if (isset($_POST['civility']) && ($_POST['lastname']) && ($_POST['firstname'])) {
-    echo 'Bonjour ' . $_POST['civility'] . ' ' . $_POST['lastname'] . ' ' . $_POST['firstname'];
-  }
-  ?>
-</p>
-
-
+  <p>
+    <?php
+    echo 'Bonjour ' . htmlspecialchars($_COOKIE['pseudo']) . htmlspecialchars($_COOKIE['password']);
+    ?>
+  </p>
+   <a href="../index.php">Retour</a>
 </body>
 </html>
